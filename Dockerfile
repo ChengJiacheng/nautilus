@@ -1,7 +1,7 @@
 FROM pytorch/pytorch
 RUN apt-get update
 RUN apt-get install -y libsm6 libxext6 libxrender-dev vim
-ADD https://gitlab.nautilus.optiputer.net/jiacheng/nautilus/blob/master/environment.yml /tmp/environment.yml
+ADD https://gitlab.nautilus.optiputer.net/JerryYLi/docker-test/raw/video-ssl/environment.yml /tmp/environment.yml
 RUN conda env create -f /tmp/environment.yml
 RUN conda init bash
 RUN echo "source activate video-ssl" >> ~/.bashrc
