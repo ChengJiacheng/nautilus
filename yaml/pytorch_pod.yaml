@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: gpu-container
-    image: gitlab-registry.nautilus.optiputer.net/jiacheng/nautilus:latest
+    image: gitlab-registry.nautilus.optiputer.net/jerryyli/docker-test:559f099b
     args: ["sleep", "infinity"]
     volumeMounts:
     - mountPath: /data
