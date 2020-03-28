@@ -11,6 +11,6 @@ build-and-push-job:
   tags:
     - build-as-docker
   script:
-    - docker build -t gitlab-registry.nautilus.optiputer.net/jerryyli/docker-test:${CI_COMMIT_SHA:0:8} .
-    - docker tag gitlab-registry.nautilus.optiputer.net/jerryyli/docker-test:${CI_COMMIT_SHA:0:8} gitlab-registry.nautilus.optiputer.net/jerryyli/docker-test:latest
-    - docker push gitlab-registry.nautilus.optiputer.net/jerryyli/docker-test
+    - docker build -t gitlab-registry.nautilus.optiputer.net/jiacheng/nautilus:${CI_COMMIT_SHA:0:8} .
+    - docker tag gitlab-registry.nautilus.optiputer.net/jiacheng/nautilus:${CI_COMMIT_SHA:0:8} gitlab-registry.nautilus.optiputer.net/jiacheng/nautilus:latest
+    - docker push gitlab-registry.nautilus.optiputer.net/jiacheng/nautilus
