@@ -3,11 +3,11 @@
 FROM continuumio/anaconda3:2020.02
 RUN apt-get update  \
     && apt-get install -y libsm6 libxext6 libxrender-dev vim wget sudo psmisc
-ADD https://gitlab.nautilus.optiputer.net/JerryYLi/docker-test/raw/video-ssl/environment.yml /tmp/environment.yml
+ADD https://gitlab.nautilus.optiputer.net/jiacheng/nautilus/-/blob/master/environment.yml /tmp/environment.yml
 RUN conda env create -f /tmp/environment.yml \
     && conda init bash \
-    && echo "source activate video-ssl" >> ~/.bashrc
-ENV PATH /opt/conda/envs/video-ssl/bin:$PATH
+    && echo "source activate torch" >> ~/.bashrc
+ENV PATH /opt/conda/envs/torch/bin:$PATH
 RUN locale-gen en_US.UTF-8
 
 # RUN conda env create -f /environment.yml
