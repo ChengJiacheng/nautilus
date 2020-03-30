@@ -13,6 +13,9 @@ $ docker login gitlab-registry.nautilus.optiputer.net
 $ docker image rm 3b8
 $ docker container rm 8e00
 $ docker run -it ubuntu:16.04 /bin/bash
+
+$ docker container prune
+$ docker image prune
 ```
 
 ### build and push image (Dockerfile should be in current folder)
