@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test  # specify your job name here
+spec:
+  template:
+    spec:
+      containers:
+      - name: gpu-container
+        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:torch_test
+        command: ["/bin/sh","-c"]
+        args:
+        - echo starting;
+          cd /data/jiacheng/proj_test/Cifar100;
+          bash ./run.sh;
+          echo done;
+        volumeMounts:
+        - mountPath: /data
+          name: data
+        - mountPath: /dev/shm
+          name: dshm
+        resources:
+          limits:
+            memory: 8Gi
+            nvidia.com/gpu: "8"
+            cpu: "2"
+          requests:
+            memory: 8Gi
+            nvidia.com/gpu: "8"
+            cpu: "2"
+      restartPolicy: Never
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: storage
+        - name: dshm
+          emptyDir:
+            medium: Memory
+  backoffLimit: 1
+
+        

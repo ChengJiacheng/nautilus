@@ -1,6 +1,17 @@
 # nautilus
 
-## Docker Image
+## kubectl
+```
+kubectl -n svcl-underwater-rl exec jiacheng -it bash
+kubectl port-forward jiacheng 8080:8080
+kubectl port-forward jiacheng 8888:8888
+kubectl -n svcl-underwater-rl create -f pytorch_job.yaml
+kubectl get jobs
+kubectl delete job test
+kubectl logs test-h2mqt
+```
+
+## Docker
 ### Install
 ```
 ```
@@ -16,6 +27,9 @@ $ docker run -it ubuntu:16.04 /bin/bash
 
 $ docker container prune
 $ docker image prune
+
+$ docker ps
+
 ```
 
 ### build and push image (Dockerfile should be in current folder)
