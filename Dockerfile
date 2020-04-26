@@ -2,7 +2,7 @@ FROM pytorch/pytorch:1.4-cuda10.1-cudnn7-runtime
 
 RUN apt-get update && apt-get install -y libsm6 libxext6 libxrender-dev vim wget sudo psmisc locales cmake vim
 RUN locale-gen en_US.UTF-8
-ADD https://gitlab.nautilus.optiputer.net/jiacheng/nautilus/-/raw/master/pytorch.yml /tmp/environment.yml
+ADD https://gitlab.nautilus.optiputer.net/jiacheng/nautilus/-/raw/master/pytorch_gym.yml /tmp/environment.yml
 
 RUN conda env create --file /tmp/environment.yml && conda init bash && echo "source activate torch" >> ~/.bashrc
 ENV PATH /opt/conda/envs/torch/bin:$PATH

@@ -1,11 +1,18 @@
 # nautilus
 
+## Anaconda
+```
+
+conda env export --name torch > sgb.yml
+
+```
+
 ## kubectl
 ```
 kubectl -n svcl-underwater-rl exec jiacheng -it bash
 kubectl port-forward jiacheng 8080:8080
 kubectl port-forward jiacheng 8888:8888
-kubectl -n svcl-underwater-rl create -f pytorch_job.yaml
+kubectl -n svcl-underwater-rl create -f .\gpu_pod.yaml
 kubectl get jobs
 kubectl delete job test
 kubectl logs test-h2mqt
@@ -28,14 +35,14 @@ $ docker run -it ubuntu:16.04 /bin/bash
 $ docker container prune
 $ docker image prune
 
-$ docker ps
+$ docker container ps
 
 ```
 
 ### build and push image (Dockerfile should be in current folder)
 ```
-$ docker build -t gitlab-registry.nautilus.optiputer.net/jiacheng/nautilus:test .
-$ docker push gitlab-registry.nautilus.optiputer.net/jiacheng/nautilus:test
+$ docker build -t gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:gym .
+$ docker push gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:gym
 ```
 
 ## Jupyter notebook
