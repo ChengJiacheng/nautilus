@@ -46,8 +46,8 @@ $ docker container ps
 
 ### build and push image (Dockerfile should be in current folder)
 ```
-$ docker build -t gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:gym .
-$ docker push gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:gym
+docker build -t gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgb .
+docker push gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgb
 ```
 
 ## Jupyter notebook
