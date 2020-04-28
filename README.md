@@ -18,6 +18,11 @@ kubectl delete job test
 kubectl logs test-h2mqt
 ```
 
+## Github
+```
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+
+```
 ## Docker
 ### Install
 ```

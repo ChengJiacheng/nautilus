@@ -1,6 +1,6 @@
 FROM pytorch/pytorch:1.4-cuda10.1-cudnn7-runtime
 
-RUN apt-get update && apt-get install -y libsm6 libxext6 libxrender-dev vim wget sudo psmisc locales cmake vim
+RUN apt-get update && apt-get install -y libsm6 libxext6 libxrender-dev vim wget sudo psmisc locales cmake vim htop
 RUN locale-gen en_US.UTF-8
 ADD https://gitlab.nautilus.optiputer.net/jiacheng/nautilus/-/raw/master/sgb.yml /tmp/environment.yml
 
