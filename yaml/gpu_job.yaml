@@ -1,17 +1,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: test  # specify your job name here
+  name: jiacheng  # specify your job name here
 spec:
   template:
     spec:
       containers:
       - name: gpu-container
-        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:torch_test
+        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
         command: ["/bin/sh","-c"]
         args:
         - echo starting;
-          cd /data/jiacheng/proj_test/Cifar100;
+          cd /data/jiacheng/rfs;
           bash ./run.sh;
           echo done;
         volumeMounts:
@@ -22,12 +22,12 @@ spec:
         resources:
           limits:
             memory: 8Gi
-            nvidia.com/gpu: "8"
-            cpu: "2"
+            nvidia.com/gpu: "1"
+            cpu: "1"
           requests:
             memory: 8Gi
-            nvidia.com/gpu: "8"
-            cpu: "2"
+            nvidia.com/gpu: "1"
+            cpu: "1"
       restartPolicy: Never
       volumes:
         - name: data
