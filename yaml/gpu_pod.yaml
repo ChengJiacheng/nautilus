@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: gpu-container
-    image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3-simd
+    image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
     args: ["sleep", "infinity"]
     volumeMounts:
     - mountPath: /data
@@ -15,12 +15,12 @@ spec:
     resources:
       limits:
         memory: 8Gi
-        nvidia.com/gpu: 1
-        cpu: 1.0
+        nvidia.com/gpu: "1"
+        # cpu: "1"
       requests:
         memory: 8Gi
-        nvidia.com/gpu: 1
-        cpu: 1.0
+        nvidia.com/gpu: "1"
+        # cpu: "1"
   restartPolicy: Never
   volumes:
     - name: data
