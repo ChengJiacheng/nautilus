@@ -1,13 +1,13 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: jiacheng3  # specify your job name here
+  name: jiacheng4  # specify your job name here
 spec:
   template:
     spec:
       containers:
       - name: gpu-container
-        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3-simd
+        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
         command: ["/bin/sh","-c"]
         args:
         - cd /data/jiacheng/rfs;
@@ -19,13 +19,13 @@ spec:
           name: dshm
         resources:
           limits:
-            memory: 32Gi
+            memory: 16Gi
             nvidia.com/gpu: "1"
-            cpu: "2"
+            cpu: "8"
           requests:
             memory: 8Gi
             nvidia.com/gpu: "1"
-            cpu: "0.5"
+            cpu: "8"
       restartPolicy: Never
       volumes:
         - name: data
