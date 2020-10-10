@@ -53,10 +53,10 @@ docker push gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgb
 ## Jupyter notebook
 on server  
 ```
-jupyter-notebook --allow-root --ip='0.0.0.0'
-```
+jupyter-notebook --allow-root --ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password='' --notebook-dir=/data
 
-on your laptop/PC
+```
+local
 ```
 $ kubectl port-forward gpu-pod-example 8888:8888
 ```

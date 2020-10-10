@@ -1,17 +1,19 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: jiacheng6  # specify your job name here
+  name: jiacheng  # specify your job name here
 spec:
   template:
     spec:
       containers:
       - name: gpu-container
-        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
+        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:gym
         command: ["/bin/sh","-c"]
         args:
-        - cd /data/jiacheng/Cifar100;
-          bash run.sh;
+        - conda install -y yaml;
+          git clone https://github.com/Ian-Mint/pong-underwater-rl.git;
+          cd pong-underwater-rl/scripts;
+          python run-job.py -u ian -n 111 112 113 -f configs/111.yml configs/112.yml configs/113.yml -m 15 -c 3;
         volumeMounts:
         - mountPath: /data
           name: data
@@ -19,13 +21,13 @@ spec:
           name: dshm
         resources:
           limits:
-            memory: 3Gi
+            memory: 8Gi
             nvidia.com/gpu: "1"
-            cpu: "4"
+            cpu: "8"
           requests:
-            memory: 3Gi
+            memory: 8Gi
             nvidia.com/gpu: "1"
-            cpu: "4"
+            cpu: "8"
       restartPolicy: Never
       volumes:
         - name: data
