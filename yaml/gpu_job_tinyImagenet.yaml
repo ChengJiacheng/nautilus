@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: jiacheng6  # specify your job name here
+  name: jiacheng3 # specify your job name here
 spec:
   template:
     spec:
@@ -10,7 +10,7 @@ spec:
         image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
         command: ["/bin/sh","-c"]
         args:
-        - apt-get install -y zip;
+        - bash /data/jiacheng/Cifar100/prepare_tinyImage.sh;
           cd /data/jiacheng/Cifar100;
           bash run.sh;
         volumeMounts:
@@ -20,13 +20,13 @@ spec:
           name: dshm
         resources:
           limits:
-            memory: 3Gi
-            nvidia.com/gpu: "1"
-            cpu: "4"
+            memory: 8G
+            nvidia.com/gpu: "2"
+            cpu: "2"
           requests:
-            memory: 3Gi
-            nvidia.com/gpu: "1"
-            cpu: "4"
+            memory: 8G
+            nvidia.com/gpu: "2"
+            cpu: "2"
       restartPolicy: Never
       volumes:
         - name: data

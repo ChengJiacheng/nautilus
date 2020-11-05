@@ -1,16 +1,26 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: jiacheng6  # specify your job name here
+  name: jiacheng2  # specify your job name here
 spec:
   template:
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: gpu-type
+                  operator: In
+                  values:
+                  - 2080Ti
       containers:
       - name: gpu-container
         image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
         command: ["/bin/sh","-c"]
         args:
-        - cd /data/jiacheng/Cifar100;
+        - bash /data/jiacheng/Cifar100/prepare_data.sh;
+          cd /data/jiacheng/Cifar100;
           bash run.sh;
         volumeMounts:
         - mountPath: /data
@@ -19,13 +29,13 @@ spec:
           name: dshm
         resources:
           limits:
-            memory: 3Gi
+            memory: 8Gi
             nvidia.com/gpu: "1"
-            cpu: "4"
+            cpu: "2"
           requests:
-            memory: 3Gi
+            memory: 8Gi
             nvidia.com/gpu: "1"
-            cpu: "4"
+            cpu: "2"
       restartPolicy: Never
       volumes:
         - name: data
