@@ -5,22 +5,24 @@ metadata:
 spec:
   template:
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                - key: gpu-type
-                  operator: In
-                  values:
-                  - 2080Ti
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #           - key: gpu-type
+      #             operator: In
+      #             values:
+      #             - 2080Ti
       containers:
       - name: gpu-container
         image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
         command: ["/bin/sh","-c"]
         args:
-        - bash /data/jiacheng/Cifar100/prepare_data.sh;
-          cd /data/jiacheng/Cifar100;
+        # - bash /data/jiacheng/Cifar100/prepare_data.sh;
+        #   cd /data/jiacheng/Cifar100;
+        - bash /data/jiacheng/Ensemble/prepare_data.sh;
+          cd /data/jiacheng/Ensemble;
           bash run.sh;
         volumeMounts:
         - mountPath: /data

@@ -3,7 +3,7 @@
 ## Anaconda
 ```
 
-conda env export --name torch > sgb.yml
+conda env export --name torch > env.yml
 
 ```
 
@@ -16,6 +16,11 @@ kubectl -n svcl-underwater-rl create -f .\gpu_pod.yaml
 kubectl get jobs
 kubectl delete job test
 kubectl logs test-h2mqt
+```
+
+## code-server
+```
+code-server-3.0.1-linux-x86_64/code-server --auth none
 ```
 
 ## Github
@@ -31,7 +36,6 @@ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 $ docker version
 $ docker images
-$ docker version
 $ docker login gitlab-registry.nautilus.optiputer.net
 $ docker image rm 3b8
 $ docker container rm 8e00
