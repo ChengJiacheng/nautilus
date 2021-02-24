@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: jiacheng2  # specify your job name here
+  name: jiacheng3  # specify your job name here
 spec:
   template:
     spec:
@@ -16,7 +16,7 @@ spec:
       #             - 2080Ti
       containers:
       - name: gpu-container
-        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
+        image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:torch17v1
         command: ["/bin/sh","-c"]
         args:
         # - bash /data/jiacheng/Cifar100/prepare_data.sh;

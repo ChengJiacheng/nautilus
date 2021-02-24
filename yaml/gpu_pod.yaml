@@ -14,7 +14,7 @@ spec:
   #             - 2080Ti
   containers:
   - name: gpu-container
-    image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:sgbv3
+    image: gitlab-registry.nautilus.optiputer.net/jiacheng/docker-images:torch17v2
     args: ["sleep", "infinity"]
     volumeMounts:
     - mountPath: /data
