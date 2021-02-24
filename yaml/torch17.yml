@@ -51,7 +51,6 @@ dependencies:
   - jpeg=9b=h024ee3a_2
   - jsonschema=3.2.0=py38_0
   - jupyter=1.0.0=py38_7
-  - jupyter_client=6.1.7=py_0
   - jupyter_console=6.1.0=py_0
   - jupyter_core=4.6.3=py38h32f6830_1
   - kiwisolver=1.1.0=py38hc9558a2_0
@@ -142,7 +141,6 @@ dependencies:
   - tensorboard=1.15.0=py38_0
   - terminado=0.8.3=py38h32f6830_1
   - testpath=0.4.4=py_0
-  - threadpoolctl=2.1.0=pyh5ca1d4c_0
   - tk=8.6.8=hbc83047_0
   - toolz=0.10.0=py_0
   - torchaudio=0.7.2=py38
@@ -175,8 +173,9 @@ dependencies:
     - psutil==5.7.0
     - pyyaml==5.3
     - pyzmq==19.0.0
-    - scikit-learn==0.21.1
+    - scikit-learn==0.24.1
     - tensorboard-logger==0.1.0
+    - threadpoolctl==2.1.0
     - xgboost==0.90
 prefix: /opt/conda/envs/torch
 
